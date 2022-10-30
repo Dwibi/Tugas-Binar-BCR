@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import AppRoutes from "config/router";
+import { Fragment } from "react";
+import Header from "./component/Header";
+import Footer from "component/Footer";
 
-function App() {
+const App = (props) => {
+  const [statusPencarian, setStatusPencarian] = useState(null);
+  const closeHandler = (arg) => {
+    setStatusPencarian(arg);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Header {...props} statusPencarian={statusPencarian} />
+      <AppRoutes {...props} closeHandler={closeHandler} />
+      <Footer />
+    </Fragment>
   );
-}
+};
 
 export default App;

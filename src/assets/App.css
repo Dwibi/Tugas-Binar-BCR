@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-around;
+  background-color: paleturquoise;
+  align-items: center;
+  height: 70px;
+}
+.header-title {
+  font-family: Arial;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+.header-nav {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.header-nav li {
+  /* font-weight: bold; */
+}
