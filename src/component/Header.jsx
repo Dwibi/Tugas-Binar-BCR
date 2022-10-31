@@ -1,11 +1,20 @@
 import binar from "assets/images/logo-binar.svg";
 import mobil from "assets/images/img_car.png";
 import { Link, useNavigate } from "react-router-dom";
+import icon_x from "assets/images/fi_x.png";
+import icon_bars from "assets/images/fi_menu.png";
+import { useRef } from "react";
 
 const Header = ({ history, statusPencarian }) => {
   const navigate = useNavigate();
   const clickHandler = (e) => {
     navigate("/start-rent-car");
+  };
+
+  const navRef = useRef();
+
+  const showBar = () => {
+    navRef.current.classList.toggle("responsive-nav");
   };
   return (
     <>
@@ -13,37 +22,28 @@ const Header = ({ history, statusPencarian }) => {
         <Link className="navbar-brand" to={"/"}>
           <img src={binar} alt="" width="50" height="50"></img>
         </Link>
-        <ul>
-          <li className="nav-parent">
-            <Link href="#our-services" to={"#our-services"}>
-              Our Services
-            </Link>
-          </li>
-          <li>
-            <Link href="#why-us" to={"#our-services"}>
-              Why Us
-            </Link>
-          </li>
-          <li>
-            <Link href="#testimonial" to={"#our-services"}>
-              Testimonial
-            </Link>
-          </li>
-          <li>
-            <Link href="#faq" to={"#our-services"}>
-              FAQ
-            </Link>
-          </li>
-        </ul>
 
-        <div className="menu-toggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
+        <div className="nav-bar" ref={navRef}>
+          <a href="#our-services" to={"#our-services"}>
+            Our Services
+          </a>
+          <a href="#why-us" to={"#our-services"}>
+            Why Us
+          </a>
+          <a href="#testimonial" to={"#our-services"}>
+            Testimonial
+          </a>
+          <a href="#faq" to={"#our-services"}>
+            FAQ
+          </a>
+          <button className="nav-btn nav-close-btn" onClick={showBar}>
+            <img src={icon_x} alt="x" />
+          </button>
         </div>
+        <button onClick={showBar} className="nav-btn">
+          <img src={icon_bars} alt="bars" />
+        </button>
       </nav>
-      <script src="animation.js"></script>
       <header>
         <div className="hero-section" style={{ height: statusPencarian === "success" ? 200 : "auto" }}>
           {statusPencarian !== "success" && (

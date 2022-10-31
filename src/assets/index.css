@@ -13,68 +13,29 @@ nav {
   padding: 20px 0px;
   align-items: center;
 }
-nav ul {
+.nav-bar {
   display: flex;
-  list-style: none;
-  gap: 32px;
+  gap: 36px;
 }
-nav ul li a {
-  color: #000000;
-  text-decoration: none;
+.nav-bar a,
+.nav-bar a:hover {
   font-family: "Arial";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 14px;
   line-height: 20px;
+  text-decoration: none;
+  color: black;
 }
-nav ul li a:hover {
-  color: #000000;
-}
-
-.menu-toggle {
-  height: 50px;
+div .nav-btn {
   display: none;
-  flex-direction: column;
-  /* gap: 11px; */
-  justify-content: space-evenly;
-  position: relative;
-}
-.menu-toggle input {
-  position: absolute;
-  width: 40px;
-  height: 50px;
-  opacity: 0;
+  padding: 5px;
   cursor: pointer;
-  z-index: 2;
-}
-.menu-toggle span {
-  display: block;
-  width: 40px;
-  height: 3px;
-  background-color: #000000;
-  border-radius: 3px;
-  transition: all 0.5s;
-}
-
-.menu-toggle span:nth-child(2) {
-  transform-origin: 0 0;
-}
-
-.menu-toggle span:nth-child(4) {
-  transform-origin: 0 100%;
-}
-
-.menu-toggle input:checked ~ span:nth-child(2) {
-  transform: rotate(45deg);
-}
-.menu-toggle input:checked ~ span:nth-child(4) {
-  transform: rotate(-45deg);
-}
-.menu-toggle input:checked ~ span:nth-child(3) {
-  transform: scale(0);
+  background: transparent;
+  border: none;
+  outline: none;
   opacity: 0;
 }
-
 /* Akhir Navbar */
 
 /* Awal Header */
@@ -562,11 +523,35 @@ footer {
     padding-left: 20px;
     padding-right: 20px;
   }
-  nav ul {
-    display: none;
-  }
-  .menu-toggle {
+  nav .nav-btn {
     display: flex;
+    visibility: visible;
+    opacity: 1;
+  }
+  nav div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: start;
+    padding-left: 30px;
+    padding-top: 80px;
+    background-color: white;
+    transition: 1s;
+    transform: translateX(100%);
+    flex-direction: column;
+    /* border: 1px solid black; */
+  }
+  nav .responsive-nav {
+    transform: translateX(0px);
+  }
+  nav .nav-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 20px;
   }
   .hero-section {
     flex-direction: column;
